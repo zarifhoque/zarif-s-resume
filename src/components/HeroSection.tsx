@@ -7,8 +7,8 @@ const HeroSection = () => {
     { icon: Phone, text: '+880-1317080908', href: 'tel:+8801317080908' },
     { icon: Mail, text: 'hoquelabid@gmail.com', href: 'mailto:hoquelabid@gmail.com' },
     { icon: Mail, text: 'zarifsafwan@iut-dhaka.edu', href: 'mailto:zarifsafwan@iut-dhaka.edu' },
-    { icon: Github, text: 'GitHub', href: 'https://github.com' },
-    { icon: Linkedin, text: 'LinkedIn', href: 'https://linkedin.com' }
+    { icon: Github, text: 'GitHub', href: 'https://github.com/zarifhoque' },
+    { icon: Linkedin, text: 'LinkedIn', href: 'https://www.linkedin.com/in/zarif-safwan-hoque-b394a623a/' }
   ];
 
   return (
@@ -57,22 +57,26 @@ const HeroSection = () => {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-portfolio-gradient hover:scale-105 transform transition-all duration-300 shadow-medium hover:shadow-large"
-            >
+          <Button 
+            size="lg" 
+            className="bg-portfolio-gradient hover:scale-105 transform transition-all duration-300 shadow-medium hover:shadow-large" asChild>
+            <a href="https://github.com/zarifhoque?tab=repositories" target="_blank" rel="noopener noreferrer">
               <FileText className="mr-2" size={20} />
               View Projects
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="hover:scale-105 transform transition-all duration-300"
-            >
+            </a>
+          </Button>
+          <Button 
+            variant="outline" 
+            size="lg"
+            className="hover:scale-105 transform transition-all duration-300"
+            asChild>
+            <a href="/pdfs/cv.pdf" download>
               <Download className="mr-2" size={20} />
               Download CV
-            </Button>
-          </div>
+            </a>
+          </Button>
+        </div>
+
         </div>
       </div>
     </section>
