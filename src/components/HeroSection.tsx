@@ -37,11 +37,7 @@ const HeroSection = () => {
           {/* Professional Summary */}
           <Card className="p-8 mb-8 shadow-medium hover:shadow-large transition-shadow duration-300 animate-fade-in">
             <p className="text-lg leading-relaxed text-foreground">
-              Motivated Associate Software Engineer with a strong foundation in Java and Spring Framework, 
-              complemented by experience in full-stack web development. Skilled in Agile methodologies, 
-              collaborative teamwork, and delivering high-quality, maintainable code. Quick learner with 
-              excellent problem-solving abilities and a keen attention to detail. Eager to contribute 
-              technical expertise and grow within a dynamic software development environment.
+              Enthusiastic Computer Science graduate with strong foundations in software engineering, algorithms, and system design. Skilled in multiple programming languages (C, C++, Java, Python, JavaScript) and experienced with modern frameworks, databases, and cloud platforms. Demonstrated ability to build end-to-end applications across web, mobile, and data-driven systems. Eager to apply problem-solving skills and technical expertise to contribute to innovative software solutions.
             </p>
           </Card>
 

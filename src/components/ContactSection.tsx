@@ -29,14 +29,14 @@ const ContactSection = () => {
       icon: Github,
       label: "GitHub",
       value: "View Projects",
-      href: "https://github.com",
+      href: "https://github.com/zarifhoque",
       description: "Check out my code repositories"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
       value: "Connect with me",
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/zarif-safwan-hoque-b394a623a/",
       description: "Professional networking"
     },
     {
@@ -48,15 +48,7 @@ const ContactSection = () => {
     }
   ];
 
-  const references = [
-    {
-      name: "Md. Ariful Hoque",
-      title: "Joint Secretary",
-      organization: "Bangladesh Investment Development Authority (BIDA)",
-      relationship: "Professional Reference",
-      description: "Available upon request for detailed recommendations and professional assessment."
-    }
-  ];
+  
 
   return (
     <section id="contact" className="py-20 bg-muted/30">
@@ -136,7 +128,7 @@ const ContactSection = () => {
                 className="hover:scale-105 transform transition-all duration-300"
                 asChild
               >
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/zarif-safwan-hoque-b394a623a/" target="_blank" rel="noopener noreferrer">
                   <Linkedin className="mr-2" size={20} />
                   Connect on LinkedIn
                 </a>
@@ -144,49 +136,7 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* References */}
-          <div className="max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold mb-8 text-center">Professional References</h3>
-            <div className="grid grid-cols-1 gap-6">
-              {references.map((reference, index) => (
-                <Card 
-                  key={index} 
-                  className="group hover:shadow-medium transition-all duration-300 hover:-translate-y-1 animate-fade-in"
-                  style={{ animationDelay: `${(index + 6) * 0.1}s` }}
-                >
-                  <CardHeader>
-                    <div className="flex items-center gap-4">
-                      <div className="p-3 bg-accent/10 rounded-lg group-hover:bg-accent/20 transition-colors duration-300">
-                        <User className="w-6 h-6 text-accent" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">
-                          {reference.name}
-                        </CardTitle>
-                        <CardDescription className="text-lg font-semibold text-foreground mt-1">
-                          {reference.title}
-                        </CardDescription>
-                        <CardDescription className="text-muted-foreground">
-                          {reference.organization}
-                        </CardDescription>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2">
-                        <FileText className="w-4 h-4 text-primary" />
-                        <span className="text-sm font-medium text-primary">{reference.relationship}</span>
-                      </div>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {reference.description}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
+          
 
           {/* Footer */}
           <div className="text-center mt-16 pt-8 border-t border-border">
@@ -203,7 +153,7 @@ const ContactSection = () => {
                 <Github size={24} />
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/zarif-safwan-hoque-b394a623a/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-2 text-muted-foreground hover:text-primary transition-colors duration-300 hover:scale-110 transform"
