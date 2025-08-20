@@ -117,10 +117,11 @@ const ContactSection = () => {
                 variant="outline" 
                 size="lg"
                 className="hover:scale-105 transform transition-all duration-300"
-                onClick={() => window.print()}
-              >
-                <Download className="mr-2" size={20} />
-                Download CV
+                asChild>
+                <a href="/pdfs/cv.pdf" download>
+                  <Download className="mr-2" size={20} />
+                  Download CV
+                </a>
               </Button>
               <Button 
                 variant="secondary" 
