@@ -98,12 +98,12 @@ const ProjectsSection = () => {
                     <project.icon className="w-6 h-6 text-primary" />
                   </div>
                   <div className="flex gap-2">
-                    <Button variant="ghost" size="icon" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {/* <Button variant="ghost" size="icon" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <Github size={18} />
-                    </Button>
-                    <Button variant="ghost" size="icon" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </Button> */}
+                    {/* <Button variant="ghost" size="icon" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <ExternalLink size={18} />
-                    </Button>
+                    </Button> */}
                   </div>
                 </div>
                 <CardTitle className="text-xl mb-2 group-hover:text-primary transition-colors duration-300">
