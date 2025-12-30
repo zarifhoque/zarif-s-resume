@@ -1,9 +1,12 @@
-import { Menu, Moon, Sun, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Menu, X, Moon, Sun } from "lucide-react";
+import { useTheme } from "@/contexts/UseTheme";
 
-export default function Navigation({ isDarkMode, toggleDarkMode }) {
+const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const navItems = [
     { label: "About", href: "#about" },
@@ -23,7 +26,7 @@ export default function Navigation({ isDarkMode, toggleDarkMode }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (href) => {
+  const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -35,96 +38,68 @@ export default function Navigation({ isDarkMode, toggleDarkMode }) {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? isDarkMode
-            ? "bg-gray-900/95 backdrop-blur-md shadow-lg"
-            : "bg-white/95 backdrop-blur-md shadow-lg"
+          ? "bg-background/95 backdrop-blur-md shadow-medium glass-frosted "
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <div
-            className={`text-xl font-bold transition-colors ${
-              isDarkMode ? "text-white" : "text-gray-900"
-            }`}
-          >
-            Zarif Safwan Hoque
-          </div>
-
+      <div className="container mx-auto px-4 py-4 ">
+        <div className="flex items-center justify-end ">
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className={`transition-all duration-300 hover:scale-105 transform ${
-                  isDarkMode
-                    ? "text-gray-300 hover:text-blue-400"
-                    : "text-gray-700 hover:text-blue-600"
-                }`}
+                className="text-foreground hover:text-primary transition-colors duration-300 hover:scale-105 transform"
               >
                 {item.label}
               </button>
             ))}
 
-            <button
-              onClick={toggleDarkMode}
-              className={`p-2 rounded-full transition-all duration-300 hover:scale-110 ${
-                isDarkMode
-                  ? "bg-gray-800 text-yellow-400 hover:bg-gray-700"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
-              aria-label="Toggle dark mode"
+            {/* Theme Toggle Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              className="rounded-full"
+              aria-label="Toggle theme"
             >
-              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
+              {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+            </Button>
           </div>
 
           {/* Mobile Menu Buttons */}
           <div className="md:hidden flex items-center gap-2">
-            {/* Dark Mode Toggle - Mobile */}
-            <button
-              onClick={toggleDarkMode}
-              className={`p-2 rounded-full transition-all duration-300 ${
-                isDarkMode
-                  ? "bg-gray-800 text-yellow-400 hover:bg-gray-700"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
-              aria-label="Toggle dark mode"
+            {/* Theme Toggle for Mobile */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              className="rounded-full"
+              aria-label="Toggle theme"
             >
-              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
+              {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+            </Button>
 
-            <button
+            <Button
+              variant="ghost"
+              size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2 rounded-lg transition-colors ${
-                isDarkMode
-                  ? "text-gray-300 hover:bg-gray-800"
-                  : "text-gray-700 hover:bg-gray-100"
-              }`}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            </Button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div
-            className={`md:hidden mt-4 pb-4 border-t transition-colors ${
-              isDarkMode ? "border-gray-700" : "border-gray-200"
-            }`}
-          >
+          <div className="md:hidden mt-4 pb-4 border-t border-border animate-fade-in">
             <div className="flex flex-col space-y-3 pt-4">
               {navItems.map((item) => (
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className={`text-left py-2 transition-colors duration-300 ${
-                    isDarkMode
-                      ? "text-gray-300 hover:text-blue-400"
-                      : "text-gray-700 hover:text-blue-600"
-                  }`}
+                  className="text-left text-foreground hover:text-primary transition-colors duration-300 py-2"
                 >
                   {item.label}
                 </button>
@@ -135,4 +110,6 @@ export default function Navigation({ isDarkMode, toggleDarkMode }) {
       </div>
     </nav>
   );
-}
+};
+
+export default Navigation;
