@@ -41,8 +41,7 @@ export default function TypewriterText() {
   return (
     <div className="h-16 sm:h-20 md:h-24 mb-4 sm:mb-6 flex items-center justify-center ">
       <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-400">
-        
-        <span className="animate-pulse">{displayedText}</span>
+        <span className="">{displayedText}</span>
       </h2>
     </div>
   );
