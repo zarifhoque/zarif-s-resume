@@ -1,145 +1,80 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { Mail, Phone, Github, Linkedin, Download, FileText } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import TypewriterText from "./custom/TypeWriterText";
 
-const HeroSection = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+export default function PortfolioHero() {
+  const [currentRole, setCurrentRole] = useState(0);
 
-  const contactInfo = [
-    { icon: Phone, text: '+880-1317080908', href: 'tel:+8801317080908' },
-    { icon: Mail, text: 'hoquelabid@gmail.com', href: 'mailto:hoquelabid@gmail.com' },
-    { icon: Mail, text: 'zarifsafwan@iut-dhaka.edu', href: 'mailto:zarifsafwan@iut-dhaka.edu' },
-    { icon: Github, text: 'GitHub', href: 'https://github.com/zarifhoque' },
-    { icon: Linkedin, text: 'LinkedIn', href: 'https://www.linkedin.com/in/zarif-safwan-hoque-b394a623a/' },
-  ];
+  useEffect(() => {}, []);
 
   return (
-    <section
-      id="about"
-      className="min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-20 relative overflow-hidden bg-background"
-    >
-      {/* SVG Curved Arrow */}
-      {/* <svg
-        className="absolute left-20 top-1/2 transform -translate-y-1/2 w-72 h-40 opacity-40 pointer-events-none"
-        viewBox="0 0 300 150"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <motion.path
-          d="M10 140 C80 40, 220 40, 290 120"
-          stroke="#1C4B43"
-          strokeWidth="2"
-          fill="transparent"
-          strokeDasharray="6 6"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{ duration: 1.5, ease: 'easeInOut' }}
-        />
-        <polygon points="285,115 295,120 285,125" fill="#1C4B43" />
-      </svg> */}
+    <div className="min-h-screen w-full bg-gradient-to-br from-purple-100 via-blue-50 to-cyan-100 flex items-center justify-center p-4 sm:p-6 md:p-8 relative overflow-hidden">
+      {/* Decorative gradient orbs */}
+      {/* <div className="absolute top-0 left-0 w-64 h-64 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse "></div>
+      <div
+        // className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse "
+        style={{ animationDelay: "1s" }}
+      ></div> */}
 
+      <div className="relative z-10 max-w-4xl w-full text-center ">
+        {/* Availability Badge */}
+        <div className="inline-flex items-center gap-2 text-xs sm:text-sm text-gray-600 mb-4 sm:mb-6">
+          <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+          AVAILABLE FOR OPPORTUNITIES
+        </div>
 
-      {/* Left: Info */}
-      <div className="max-w-xl text-center md:text-left space-y-20">
-        
-        <Card className="p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-          <p className="text-base text-foreground leading-relaxed">
-            Enthusiastic Computer Science student with strong foundations in
-            algorithms, software engineering, and system design. Skilled across
-            web, mobile, and data-driven systems — passionate about crafting
-            beautiful, functional experiences.
-          </p>
-        </Card>
+        {/* Greeting */}
+        <div className="text-sm sm:text-base text-blue-600 font-medium mb-2 sm:mb-4">
+          HELLO, I'M
+        </div>
 
-        <div className="flex items-center space-x-2">
-          <span className="text-3xl font-bold text-primary">04</span>
-          <span className="uppercase text-sm tracking-wide text-muted-foreground">
-            Years <br /> Experience
-          </span>
+        {/* Name */}
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-2 sm:mb-4">
+          <span className="text-gray-900">Zarif </span>
+          <span className="text-blue-600">Safwan</span>
+        </h1>
+
+        {/* Rotating Role */}
+        <TypewriterText />
+
+        {/* Description */}
+        <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-6 sm:mb-8 px-4 leading-relaxed">
+          Computer Science student passionate about crafting scalable software,
+          intuitive interfaces, and robust systems. Building the future with
+          code, one line at a time.
+        </p>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 sm:mb-12">
+          <button className="w-full sm:w-auto bg-gray-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium hover:bg-gray-800 transition-all duration-300 flex items-center justify-center gap-2 group">
+            View My Work
+            <svg
+              className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+          <button className="w-full sm:w-auto bg-transparent text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium border-2 border-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-300">
+            Contact Me
+          </button>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="flex flex-col items-center gap-2 text-xs text-gray-500">
+          <span className="hidden sm:block">SCROLL DOWN</span>
+          <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex items-start justify-center p-1">
+            <div className="w-1.5 h-2 bg-gray-600 rounded-full animate-bounce"></div>
+          </div>
+          <span className="text-gray-600 font-medium">MORE</span>
         </div>
       </div>
-
-      <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7 }}
-      className="relative mb-12 md:mb-0 w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl"
-    >
-      <img
-        src="../public/images/zarif.webp"
-        alt="Profile"
-        className="w-full h-full object-cover"
-      />
-    </motion.div>
-
-
-    {/* Right: Info */}
-      <div className="max-w-xl text-center md:text-left space-y-20">
-        
-
-        {/* Summary Card */}
-        
-
-        {/* Contact Links (with dim effect) */}
-        <div className="flex flex-wrap justify-center md:justify-start gap-3 pt-4">
-          {contactInfo.map((contact, index) => (
-            <motion.a
-              key={index}
-              href={contact.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              onHoverStart={() => setHoveredIndex(index)}
-              onHoverEnd={() => setHoveredIndex(null)}
-              animate={{
-                opacity:
-                  hoveredIndex === null || hoveredIndex === index ? 1 : 0.3,
-                scale: hoveredIndex === index ? 1.1 : 1,
-              }}
-              transition={{ duration: 0.25 }}
-              className="flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-primary hover:text-primary-foreground rounded-lg transition-all duration-300"
-            >
-              <contact.icon size={18} />
-              <span className="text-sm font-medium">{contact.text}</span>
-            </motion.a>
-          ))}
-        </div>
-
-        
-
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-6">
-          <Button
-            size="lg"
-            className="bg-portfolio-gradient hover:scale-105 transform transition-all duration-300 shadow-medium hover:shadow-large"
-            asChild
-          >
-            <a
-              href="https://github.com/zarifhoque?tab=repositories"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FileText className="mr-2" size={20} />
-              View Projects
-            </a>
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="hover:scale-105 transform transition-all duration-300"
-            asChild
-          >
-            <a href="/pdfs/cv.pdf" download>
-              <Download className="mr-2" size={20} />
-              Download CV
-            </a>
-          </Button>
-        </div>
-      </div>
-
-    </section>
+    </div>
   );
-};
-
-export default HeroSection;
+}
