@@ -2,20 +2,12 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { useTheme } from "@/contexts/UseTheme";
+import { navItems } from "@/data/navigation";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
-
-  const navItems = [
-    { label: "About", href: "#about" },
-    { label: "Experience", href: "#experience" },
-    { label: "Projects", href: "#projects" },
-    { label: "Skills", href: "#skills" },
-    { label: "Education", href: "#education" },
-    { label: "Contact", href: "#contact" },
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,15 +34,23 @@ const Navigation = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 py-4 ">
-        <div className="flex items-center justify-end ">
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
+          {/* Brand */}
+          <button
+            onClick={() => scrollToSection("#about")}
+            className="font-heading font-black italic uppercase text-xl tracking-tight hover:text-primary transition-colors"
+          >
+            ZSH<span className="text-primary">.</span>
+          </button>
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="text-foreground hover:text-primary transition-colors duration-300 hover:scale-105 transform"
+                className="text-foreground/70 hover:text-primary transition-colors duration-300 hover:scale-105 transform font-mono text-sm uppercase tracking-wide"
               >
                 {item.label}
               </button>
@@ -99,7 +99,7 @@ const Navigation = () => {
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-left text-foreground hover:text-primary transition-colors duration-300 py-2"
+                  className="text-left text-foreground/70 hover:text-primary transition-colors duration-300 py-2 font-mono text-sm uppercase tracking-wide"
                 >
                   {item.label}
                 </button>

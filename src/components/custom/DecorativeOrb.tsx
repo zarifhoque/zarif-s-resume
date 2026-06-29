@@ -15,7 +15,7 @@ export default function DecorativeOrb({ position, size = "md", color }) {
   };
 
   const baseClasses =
-    "absolute rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse";
+    "absolute rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-70 dark:opacity-30 animate-pulse";
 
   return (
     <div
